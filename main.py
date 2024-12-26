@@ -73,9 +73,6 @@ def order(stock: list): # 부족량을 자동으로 계산해 수요에 맞춰 �
 
     request = [need[i] - inventory[i] for i in range(len(inventory))]
     os.system("clear")
-    print(need) # debug
-    print(inventory)
-    print(request)
     print("다음의 발주를 요청합니다")
     for i in range(len(stock)):
         print(id[i], ":", request[i])
