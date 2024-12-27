@@ -70,7 +70,6 @@ def order(stock: list): # 부족량을 자동으로 계산해 수요에 맞춰 �
     id = list(stock.keys())
     inventory = list(stock.values())
     need = list(standard.values())
-
     request = [need[i] - inventory[i] for i in range(len(inventory))]
     os.system("clear")
     print("다음의 발주를 요청합니다")
@@ -87,7 +86,9 @@ def order(stock: list): # 부족량을 자동으로 계산해 수요에 맞춰 �
             if id == "done":
                 break
             change = input("발주를 얼만큼 수정할지 입력하세요: ")
-            request[int(id)] += int(change)
+            standard[int(id)] += int(change)
+        input("이번 수정은 다음 발주에도 반영됩니다")
+        order(stock)
     else: input("invalid command"); order(stock)
 
 
